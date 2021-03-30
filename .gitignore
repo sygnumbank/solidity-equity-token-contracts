@@ -1,0 +1,29 @@
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+allFiredEvents
+scTopics
+
+# Coverage directory used by tools like istanbul
+coverage
+coverage.json
+coverageEnv
+.coverage_artifacts
+.coverage_contracts
+
+# Dependency directory
+node_modules
+
+# local env variables
+.env
+
+# truffle
+.node-xmlhttprequest-*
+
+build/*
+flattened/*
