@@ -1,0 +1,24 @@
+{
+    "name":"Sygnum",
+    "symbol":"SYG",
+    "class":"a",
+    "category":"0x74657374",
+
+    "name_1":"first name",
+    "symbol_1":"fN",
+    "class_1":"a",
+
+    "name_2":"second name",
+    "symbol_2":"sN",
+    "class_2":"b",
+
+    "name_3":"third name",
+    "symbol_3":"tN",
+    "class_3":"a",
+
+    "name_4":"fourth name",
+    "symbol_4":"fN",
+    "class_4":"b",
+
+    "decimals":18
+}

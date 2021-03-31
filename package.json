@@ -1,0 +1,93 @@
+{
+  "name": "@sygnum/solidity-equity-token-contracts",
+  "version": "1.0.2",
+  "description": "Solidity equity tokens and token factory used across the Sygnum platform.",
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+    "security",
+    "sygnum"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:sygnum/blockchain-engineering/ethereum/solidity-equity-token-contracts.git"
+  },
+  "license": "MIT",
+  "author": "Sygnum Bank AG - Blockchain Engineering <team3301@sygnum.com>",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npm run lint:prettier && npm run lint:eslint && npm run lint:solhint",
+    "lint:eslint": "npx eslint 'test/**/*.js' 'config/**/*.js' truffle-config.js index.js",
+    "lint:eslint:fix": "npm run lint:eslint -- --fix",
+    "lint:fix": "npm run lint:prettier:fix && npm run lint:eslint:fix && npm run lint:solhint:fix",
+    "lint:prettier": "npx prettier --check 'contracts/**/*.sol' 'config/**/*.js' 'migrations/**/*.js' 'test/**/*.js'",
+    "lint:prettier:fix": "npx prettier --write 'contracts/**/*.sol' 'config/**/*.js' 'migrations/**/*.js' 'test/**/*.js'",
+    "lint:solhint": "npx solhint -w 0 'contracts/**/*.sol'",
+    "lint:solhint:fix": "npm run lint:solhint -- --fix",
+    "test": "npx concurrently --success \"first\" --kill-others \"ganache-cli -q -a 20 -e 1000\" \"truffle test\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npx eslint --fix"
+    ],
+    "contracts/**/*.sol": [
+      "npx solhint --fix -w 0",
+      "npx prettier --write"
+    ],
+    "package.json": [
+      "npx sort-package-json"
+    ]
+  },
+  "dependencies": {
+    "@sygnum/solidity-base-contracts": "1.0.2",
+    "@truffle/contract": "4.1.11",
+    "ethers": "4.0.45",
+    "openzeppelin-solidity": "2.5.0",
+    "zos-lib": "2.4.3"
+  },
+  "devDependencies": {
+    "@openzeppelin/test-helpers": "0.5.6",
+    "@truffle/hdwallet-provider": "1.0.38",
+    "abi-decoder": "^2.3.0",
+    "bignumber.js": "^9.0.1",
+    "chai": "4.2.0",
+    "concurrently": "^5.3.0",
+    "dotenv": "8.2.0",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.2.0",
+    "ethereumjs-abi": "0.6.7",
+    "ethers": "^5.0.23",
+    "ganache-cli": "^6.9.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "prettier": "^2.2.0",
+    "prettier-plugin-solidity": "^1.0.0-beta.1",
+    "sol2uml": "1.1.13",
+    "solhint": "^3.3.2",
+    "solhint-plugin-prettier": "0.0.5",
+    "solidity-coverage": "0.7.9",
+    "sort-package-json": "^1.48.0",
+    "truffle": "^5.1.62",
+    "truffle-events": "0.0.7",
+    "truffle-flattener": "1.4.2",
+    "truffle-hdwallet-provider": "1.0.10",
+    "verify-on-etherscan": "1.2.1",
+    "zos": "2.3.1"
+  },
+  "engines": {
+    "node": ">=10.0.0 <11.0.0"
+  },
+  "publishConfig": {
+    "@sygnum:registry": "https://gitlab.com/api/v4/projects/17378563/packages/npm/"
+  }
+}
